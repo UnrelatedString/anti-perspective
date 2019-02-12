@@ -6,9 +6,9 @@
 #include <utility>
 
 int run_viewer() {
-    cv::Mat image = cv::imread("/Users/immensityofkaiq/Documents/8by8m.png");
+    cv::Mat image = cv::imread("8by8m.png");
     const cv::Size size{700, 700};
-    if (!image.size) return 1;
+    if (image.size().empty()) return 1;
     cv::resize(image, image, size, 0, 0, cv::INTER_NEAREST);
     cv::imshow("Source", image);
     cv::namedWindow("Result");
