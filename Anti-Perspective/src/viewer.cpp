@@ -1,17 +1,14 @@
 #include "internal-header.hpp"
 
-#include <iostream>
-#include <cmath>
 #include <boost/math/special_functions/sin_pi.hpp>
 #include <boost/math/special_functions/cos_pi.hpp>
-#include <utility>
 
 void counter_perspective(cv::InputArray src,
 						 cv::OutputArray dst,
 						 cv::Size size,
 						 int d,
 						 int theta) {
-	//swapping sine and cosine instead of subtracting 90 degrees from t
+	//swapping sine and cosine instead of subtracting 90 degrees from theta
 	double st = boost::math::cos_pi(theta/(double)180);
 	double ct = boost::math::sin_pi(theta/(double)180);
 	int x = size.width/2, y = size.height/2;
