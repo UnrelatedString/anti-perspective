@@ -1,9 +1,26 @@
+#include "internal-header.hpp"
+
 #include <iostream>
-#include <opencv2/opencv.hpp>
 #include <cmath>
 #include <boost/math/special_functions/sin_pi.hpp>
 #include <boost/math/special_functions/cos_pi.hpp>
 #include <utility>
+
+void counter_perspective(cv::InputArray src,
+						 cv::OutputArray dst,
+						 cv::Size size,
+						 int d,
+						 int theta) {
+	//swapping sine and cosine instead of subtracting 90 degrees from t
+	double st = boost::math::cos_pi(theta/(double)180);
+	double ct = boost::math::sin_pi(theta/(double)180);
+	int x = size.width/2, y = size.height/2;
+	cv::warpPerspective(src, dst, cv::Matx<double, 3, 3>(
+			d + (x * st), 0, x * ((d * ct) - d - (x * st)),
+	        y * st, d * ct, -x * y * st, //would it be faster to translate on the GPU?
+	        st, 0, (d * ct) - (x * st)
+		), size);
+}
 
 int run_viewer() {
     cv::Mat image = cv::imread("8by8m.png");
@@ -16,19 +33,10 @@ int run_viewer() {
     cv::createTrackbar("Distance", "Result", &ind, 100);
     cv::createTrackbar("Angle", "Result", &t, 180);
     cv::Mat frame;
-    const int x = size.width/2, y = size.height/2;
-    double st, ct;
     int d;
     while ((cv::waitKey(100) & 0xff) != 27) {
-        //swapping sine and cosine instead of subtracting 90 degrees from t
-        st = boost::math::cos_pi(t/(double)180);
-        ct = boost::math::sin_pi(t/(double)180);
         d = 100 * ind;
-        cv::warpPerspective(image, frame, cv::Matx<double, 3, 3>(
-            d + (x * st), 0, x * ((d * ct) - d - (x * st)),
-            y * st, d * ct, -x * y * st, //would it be faster to translate on the GPU?
-            st, 0, (d * ct) - (x * st)
-        ), size);
+        counter_perspective(image, frame, size, d, t);
         cv::imshow("Result", frame);
     }
     return 0;
