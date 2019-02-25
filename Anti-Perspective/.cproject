@@ -60,6 +60,41 @@
 									<listOptionValue builtIn="false" value="/usr/local/include/opencv/modules/videostab/include"/>
 									<listOptionValue builtIn="false" value="/usr/local/include/opencv/modules/viz/include"/>
 									<listOptionValue builtIn="false" value="/usr/local/include/opencv/modules/world/include"/>
+									<listOptionValue builtIn="false" value="/usr/local/include/opencv_contrib/modules/aruco/include"/>
+									<listOptionValue builtIn="false" value="/usr/local/include/opencv_contrib/modules/bgsegm/include"/>
+									<listOptionValue builtIn="false" value="/usr/local/include/opencv_contrib/modules/bioinspired/include"/>
+									<listOptionValue builtIn="false" value="/usr/local/include/opencv_contrib/modules/ccalib/include"/>
+									<listOptionValue builtIn="false" value="/usr/local/include/opencv_contrib/modules/cnn_3dobj/include"/>
+									<listOptionValue builtIn="false" value="/usr/local/include/opencv_contrib/modules/cvv/include"/>
+									<listOptionValue builtIn="false" value="/usr/local/include/opencv_contrib/modules/datasets/include"/>
+									<listOptionValue builtIn="false" value="/usr/local/include/opencv_contrib/modules/dnn_objdetect/include"/>
+									<listOptionValue builtIn="false" value="/usr/local/include/opencv_contrib/modules/dnns_easily_fooled/include"/>
+									<listOptionValue builtIn="false" value="/usr/local/include/opencv_contrib/modules/dpm/include"/>
+									<listOptionValue builtIn="false" value="/usr/local/include/opencv_contrib/modules/face/include"/>
+									<listOptionValue builtIn="false" value="/usr/local/include/opencv_contrib/modules/freetype/include"/>
+									<listOptionValue builtIn="false" value="/usr/local/include/opencv_contrib/modules/fuzzy/include"/>
+									<listOptionValue builtIn="false" value="/usr/local/include/opencv_contrib/modules/hdf/include"/>
+									<listOptionValue builtIn="false" value="/usr/local/include/opencv_contrib/modules/hfs/include"/>
+									<listOptionValue builtIn="false" value="/usr/local/include/opencv_contrib/modules/img_hash/include"/>
+									<listOptionValue builtIn="false" value="/usr/local/include/opencv_contrib/modules/line_descriptor/include"/>
+									<listOptionValue builtIn="false" value="/usr/local/include/opencv_contrib/modules/matlab/include"/>
+									<listOptionValue builtIn="false" value="/usr/local/include/opencv_contrib/modules/optflow/include"/>
+									<listOptionValue builtIn="false" value="/usr/local/include/opencv_contrib/modules/ovis/include"/>
+									<listOptionValue builtIn="false" value="/usr/local/include/opencv_contrib/modules/phase_unwrapping/include"/>
+									<listOptionValue builtIn="false" value="/usr/local/include/opencv_contrib/modules/plot/include"/>
+									<listOptionValue builtIn="false" value="/usr/local/include/opencv_contrib/modules/reg/include"/>
+									<listOptionValue builtIn="false" value="/usr/local/include/opencv_contrib/modules/rgbd/include"/>
+									<listOptionValue builtIn="false" value="/usr/local/include/opencv_contrib/modules/saliency/include"/>
+									<listOptionValue builtIn="false" value="/usr/local/include/opencv_contrib/modules/sfm/include"/>
+									<listOptionValue builtIn="false" value="/usr/local/include/opencv_contrib/modules/stereo/include"/>
+									<listOptionValue builtIn="false" value="/usr/local/include/opencv_contrib/modules/structured_light/include"/>
+									<listOptionValue builtIn="false" value="/usr/local/include/opencv_contrib/modules/surface_matching/include"/>
+									<listOptionValue builtIn="false" value="/usr/local/include/opencv_contrib/modules/text/include"/>
+									<listOptionValue builtIn="false" value="/usr/local/include/opencv_contrib/modules/tracking/include"/>
+									<listOptionValue builtIn="false" value="/usr/local/include/opencv_contrib/modules/xfeatures2d/include"/>
+									<listOptionValue builtIn="false" value="/usr/local/include/opencv_contrib/modules/ximgproc/include"/>
+									<listOptionValue builtIn="false" value="/usr/local/include/opencv_contrib/modules/xobjdetect/include"/>
+									<listOptionValue builtIn="false" value="/usr/local/include/opencv_contrib/modules/xphoto/include"/>
 									<listOptionValue builtIn="false" value="/usr/local/include/opencv/modules/core/include"/>
 									<listOptionValue builtIn="false" value="/usr/local/include/opencv/build"/>
 									<listOptionValue builtIn="false" value="/usr/local/include/opencv/include"/>
