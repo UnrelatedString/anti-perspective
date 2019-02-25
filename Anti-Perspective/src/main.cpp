@@ -11,7 +11,8 @@ int main(int argc, const char * argv[]) {
 	switch (mode) {
 	case 's':
 		return run_viewer();
-	case 'r': //to add later
+	case 'r':
+		return select();
 	case 'd': //to add later
 	default: return 0;
 	}

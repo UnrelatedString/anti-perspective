@@ -5,5 +5,6 @@
 
 void counter_perspective(cv::InputArray, cv::OutputArray, cv::Size, int, int);
 int run_viewer();
+int select();
 
 #endif
