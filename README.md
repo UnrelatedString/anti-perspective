@@ -8,6 +8,6 @@ The end goal is that you can boot this up and no matter what angle you're lookin
 ```bash
 cd /usr/local/include/opencv/build/lib
 sudo su
-for p in $( echo libopencv_*.so.3.4.5 ); do x=$(sed "s/.s0.3.4.5/.3.4.5.so/" <(echo $p)); ln -s $p $x done
+for p in $( echo libopencv_*.so.3.4.5 ); do x=$(sed "s/.so.3.4.5/.3.4.5.so/" <(echo $p)); ln -s $p $x done
 ldconfig /usr/local/include/opencv/build/lib
 ```
