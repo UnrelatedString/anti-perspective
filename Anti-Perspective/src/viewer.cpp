@@ -25,7 +25,7 @@ int run_viewer() {
     if (image.size().empty()) return 1;
     cv::resize(image, image, size, 0, 0, cv::INTER_NEAREST);
     cv::imshow("Source", image);
-    cv::namedWindow("Result");
+    cv::namedWindow("Result",cv::WINDOW_NORMAL);
     int ind = 10, t = 91; //ind = input distance, highgui doesn't like having a slider from 0 to 10000
     cv::createTrackbar("Distance", "Result", &ind, 100);
     cv::createTrackbar("Angle", "Result", &t, 180);
