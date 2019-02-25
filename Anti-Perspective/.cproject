@@ -30,6 +30,7 @@
 							<tool id="cdt.managedbuild.tool.gnu.cross.cpp.compiler.1968801935" name="Cross G++ Compiler" superClass="cdt.managedbuild.tool.gnu.cross.cpp.compiler">
 								<option IS_BUILTIN_EMPTY="false" IS_VALUE_EMPTY="false" id="gnu.cpp.compiler.option.include.paths.459557150" name="Include paths (-I)" superClass="gnu.cpp.compiler.option.include.paths" useByScannerDiscovery="false" valueType="includePath">
 									<listOptionValue builtIn="false" value="usr/local/include/opencv/modules/calib3d/include"/>
+									<listOptionValue builtIn="false" value="/usr/local/include/opencv/modules/*/include"/>
 									<listOptionValue builtIn="false" value="usr/local/include/opencv/modules/cudaarithm/include"/>
 									<listOptionValue builtIn="false" value="usr/local/include/opencv/modules/cudabgsegm/include"/>
 									<listOptionValue builtIn="false" value="usr/local/include/opencv/modules/cudacodec/include"/>
@@ -43,10 +44,10 @@
 									<listOptionValue builtIn="false" value="usr/local/include/opencv/modules/cudawarping/include"/>
 									<listOptionValue builtIn="false" value="usr/local/include/opencv/modules/cudev/include"/>
 									<listOptionValue builtIn="false" value="usr/local/include/opencv/modules/dnn/include"/>
-									<listOptionValue builtIn="false" value="usr/local/include/opencv/modules/features2d/include"/>
-									<listOptionValue builtIn="false" value="usr/local/include/opencv/modules/flann/include"/>
-									<listOptionValue builtIn="false" value="usr/local/include/opencv/modules/highgui/include"/>
-									<listOptionValue builtIn="false" value="usr/local/include/opencv/modules/imgcodecs/include"/>
+									<listOptionValue builtIn="false" value="/usr/local/include/opencv/modules/features2d/include"/>
+									<listOptionValue builtIn="false" value="/usr/local/include/opencv/modules/flann/include"/>
+									<listOptionValue builtIn="false" value="/usr/local/include/opencv/modules/highgui/include"/>
+									<listOptionValue builtIn="false" value="/usr/local/include/opencv/modules/imgcodecs/include"/>
 									<listOptionValue builtIn="false" value="/usr/local/include/opencv/modules/imgproc/include"/>
 									<listOptionValue builtIn="false" value="/usr/local/include/opencv/modules/ml/include"/>
 									<listOptionValue builtIn="false" value="/usr/local/include/opencv/modules/objdetect/include"/>
