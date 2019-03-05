@@ -7,7 +7,7 @@
 
 int select() {
     cv::Ptr<cv::face::Facemark> facemark = cv::face::FacemarkLBF::create();
-    facemark->loadModel("/Users/immensityofkaiq/Downloads/lbfmodel.yaml");
+    facemark->loadModel("lbfmodel.yaml");
     cv::VideoCapture cam(0);
     cv::Mat frame;
     cam.read(frame);
