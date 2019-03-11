@@ -125,7 +125,7 @@
 									<listOptionValue builtIn="false" value="/usr/local/Cellar/opencv@3/3.4.5/lib"/>
 									<listOptionValue builtIn="false" value="/usr/local/include/opencv/build/lib"/>
 								</option>
-								<option id="gnu.cpp.link.option.shared.2117398287" name="Shared (-shared)" superClass="gnu.cpp.link.option.shared" useByScannerDiscovery="false" value="true" valueType="boolean"/>
+								<option id="gnu.cpp.link.option.shared.2117398287" name="Shared (-shared)" superClass="gnu.cpp.link.option.shared" useByScannerDiscovery="false" value="false" valueType="boolean"/>
 								<option id="gnu.cpp.link.option.flags.499070835" name="Linker flags" superClass="gnu.cpp.link.option.flags" useByScannerDiscovery="false" value="" valueType="string"/>
 								<inputType id="cdt.managedbuild.tool.gnu.cpp.linker.input.1363673046" superClass="cdt.managedbuild.tool.gnu.cpp.linker.input">
 									<additionalInput kind="additionalinputdependency" paths="$(USER_OBJS)"/>
