@@ -13,7 +13,8 @@ int main(int argc, const char * argv[]) {
 		return run_viewer();
 	case 'r':
 		return select();
-	case 'd': //to add later
+	case 'd':
+		return repeated_detection_old();
 	default: return 0;
 	}
 }
