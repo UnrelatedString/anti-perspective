@@ -26,7 +26,7 @@
 								<option defaultValue="gnu.c.debugging.level.max" id="gnu.c.compiler.option.debugging.level.1498521360" name="Debug Level" superClass="gnu.c.compiler.option.debugging.level" useByScannerDiscovery="false" valueType="enumerated"/>
 								<option id="gnu.c.compiler.option.dialect.std.1384219523" name="Language standard" superClass="gnu.c.compiler.option.dialect.std" useByScannerDiscovery="true" value="gnu.c.compiler.dialect.default" valueType="enumerated"/>
 								<option id="gnu.c.compiler.option.warnings.extrawarn.506768222" name="Extra warnings (-Wextra)" superClass="gnu.c.compiler.option.warnings.extrawarn" useByScannerDiscovery="false" value="false" valueType="boolean"/>
-								<option id="gnu.c.compiler.option.warnings.allwarn.1629900166" superClass="gnu.c.compiler.option.warnings.allwarn" useByScannerDiscovery="false" value="false" valueType="boolean"/>
+								<option id="gnu.c.compiler.option.warnings.allwarn.1629900166" name="All warnings (-Wall)" superClass="gnu.c.compiler.option.warnings.allwarn" useByScannerDiscovery="false" value="false" valueType="boolean"/>
 								<inputType id="cdt.managedbuild.tool.gnu.c.compiler.input.35233305" superClass="cdt.managedbuild.tool.gnu.c.compiler.input"/>
 							</tool>
 							<tool id="cdt.managedbuild.tool.gnu.cross.cpp.compiler.1968801935" name="Cross G++ Compiler" superClass="cdt.managedbuild.tool.gnu.cross.cpp.compiler">
@@ -126,6 +126,7 @@
 									<listOptionValue builtIn="false" value="/usr/local/include/opencv/build/lib"/>
 								</option>
 								<option id="gnu.cpp.link.option.shared.2117398287" name="Shared (-shared)" superClass="gnu.cpp.link.option.shared" useByScannerDiscovery="false" value="false" valueType="boolean"/>
+								<option id="gnu.cpp.link.option.flags.499070835" superClass="gnu.cpp.link.option.flags" useByScannerDiscovery="false" value="--list" valueType="string"/>
 								<inputType id="cdt.managedbuild.tool.gnu.cpp.linker.input.1363673046" superClass="cdt.managedbuild.tool.gnu.cpp.linker.input">
 									<additionalInput kind="additionalinputdependency" paths="$(USER_OBJS)"/>
 									<additionalInput kind="additionalinput" paths="$(LIBS)"/>
@@ -212,7 +213,13 @@
 		<scannerConfigBuildInfo instanceId="cdt.managedbuild.config.macosx.exe.release.551933547;cdt.managedbuild.config.macosx.exe.release.551933547.;cdt.managedbuild.tool.gnu.c.compiler.macosx.exe.release.414065340;cdt.managedbuild.tool.gnu.c.compiler.input.151060490">
 			<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId=""/>
 		</scannerConfigBuildInfo>
+		<scannerConfigBuildInfo instanceId="cdt.managedbuild.config.gnu.macosx.exe.debug.1263722666;cdt.managedbuild.config.gnu.macosx.exe.debug.1263722666.;cdt.managedbuild.tool.gnu.cross.c.compiler.1651980059;cdt.managedbuild.tool.gnu.c.compiler.input.35233305">
+			<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId=""/>
+		</scannerConfigBuildInfo>
 		<scannerConfigBuildInfo instanceId="cdt.managedbuild.config.macosx.exe.release.551933547;cdt.managedbuild.config.macosx.exe.release.551933547.;cdt.managedbuild.tool.gnu.cpp.compiler.macosx.exe.release.746638787;cdt.managedbuild.tool.gnu.cpp.compiler.input.962457645">
+			<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId=""/>
+		</scannerConfigBuildInfo>
+		<scannerConfigBuildInfo instanceId="cdt.managedbuild.config.gnu.macosx.exe.debug.1263722666;cdt.managedbuild.config.gnu.macosx.exe.debug.1263722666.;cdt.managedbuild.tool.gnu.cross.cpp.compiler.1968801935;cdt.managedbuild.tool.gnu.cpp.compiler.input.540943675">
 			<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId=""/>
 		</scannerConfigBuildInfo>
 	</storageModule>
