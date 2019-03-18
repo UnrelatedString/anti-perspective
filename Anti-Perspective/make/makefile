@@ -43,7 +43,7 @@ all: Anti-Perspective
 Anti-Perspective: $(OBJS) $(USER_OBJS)
 	@echo 'Building target: $@'
 	@echo 'Invoking: Cross G++ Linker'
-	g++ -L/usr/local/Cellar/opencv@3/3.4.5/lib -L/usr/local/include/opencv/build/lib/ -o "Anti-Perspective" $(OBJS) $(USER_OBJS) $(LIBS)
+	g++ -L/usr/local/Cellar/opencv@3/3.4.5/lib -L/usr/local/include/opencv/build/lib/ -o "../Debug/Anti-Perspective" $(OBJS) $(USER_OBJS) $(LIBS)
 	@echo 'Finished building target: $@'
 	@echo ' '
 
