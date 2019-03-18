@@ -10,16 +10,16 @@ CPP_SRCS += \
 ../src/viewer.cpp 
 
 OBJS += \
-./src/main.o \
-./src/repeated_detection_old.o \
-./src/select.o \
-./src/viewer.o 
+../Debug/src/main.o \
+../Debug/src/repeated_detection_old.o \
+../Debug/src/select.o \
+../Debug/src/viewer.o 
 
 CPP_DEPS += \
-./src/main.d \
-./src/repeated_detection_old.d \
-./src/select.d \
-./src/viewer.d 
+../Debug/src/main.d \
+../Debug/src/repeated_detection_old.d \
+../Debug/src/select.d \
+../Debug/src/viewer.d 
 
 
 # Each subdirectory must supply rules for building sources it contributes
