@@ -20,20 +20,22 @@ int all_together() {
 	float mwfx; //why is it a float?
 
 	while (1) {
-			cam.read(frame);
-			face_data = detector.get_face(frame);
-			faces = face_data.first;
-			mwfnum = face_data.second;
-	        if (mwfnum != -1) {
-	            fnum = 0;
-	            for (std::vector<cv::Point2f> const& landmarks : faces) {
-	                if (mwfnum == fnum) {
-	                	mwfx = landmarks[27].x;
-	                }
-	                fnum++;
-	            }
-	        }
+		cam.read(frame);
+		face_data = detector.get_face(frame);
+		faces = face_data.first;
+		mwfnum = face_data.second;
+		if (mwfnum != -1) {
+			fnum = 0;
+			for (std::vector<cv::Point2f> const& landmarks : faces) {
+				if (mwfnum == fnum) {
+					mwfx = landmarks[27].x;
+				}
+				fnum++;
+			}
+		}
 
-	        if ((cv::waitKey(1) & 0xff) == 27) break;
-	    }
+		if ((cv::waitKey(1) & 0xff) == 27) break;
+	}
+	std::cout << "done\n";
+	return 0;
 }

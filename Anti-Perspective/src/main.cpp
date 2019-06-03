@@ -6,7 +6,7 @@ int main(int argc, const char * argv[]) {
 	std::cout << "s for the viewer with sliders,\n";
 	std::cout << "r to select ROIs for Facemark,\n";
 	std::cout << "d for real-time face detection,\n";
-	std::cout << "v to try to use the auto-viewer.";
+	std::cout << "v to try to use the auto-viewer.\n";
 	char mode;
 	std::cin >> mode;
 	switch (mode) {
