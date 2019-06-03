@@ -3,7 +3,8 @@
 int all_together() {
 	cv::Mat vimage = cv::imread("8by8m.png");
 	const cv::Size vsize{700, 700};
-	int d = 10, calib, t = 91;
+	int d = 100, calib; //assume fixed distance??
+	double t;
 	AntiPerspectiveViewer viewer(vimage, "Result", vsize, &d, &t);
 	cv::createTrackbar("Calibrate", "Result", &calib, 500);
 

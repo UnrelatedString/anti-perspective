@@ -7,7 +7,7 @@
 
 class AntiPerspectiveViewer {
 	int *distance;
-	int *angle;
+	double *angle;
 	cv::String windowname;
 	cv::Mat image;
 	cv::Size size;
@@ -16,13 +16,13 @@ public:
 				              cv::String windowname,
 							  cv::Size size,
 							  int *distance,
-							  int *angle);
+							  double *angle);
 	void draw();
 	static void counter_perspective(cv::InputArray src,
 								        cv::OutputArray dst,
 								        cv::Size size,
 								        int d,
-								        int theta);
+								        double theta);
 };
 
 class RepeatedFacemarkDetection {
