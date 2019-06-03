@@ -57,6 +57,7 @@ public:
 };
 
 int repeated_detection_mysterious() {
+	cv::namedWindow("Facemark Test", cv::WINDOW_NORMAL);
 	cv::Mat frame;
 	cv::VideoCapture cam(0);
 	cam.read(frame);
@@ -86,7 +87,7 @@ int repeated_detection_mysterious() {
         }
         else
             cv::putText(frame, "Detection failed!", {100, 80}, cv::FONT_HERSHEY_SIMPLEX, .75, {255, 0, 255});
-        cv::imshow("Facemark Text", frame);
+        cv::imshow("Facemark Test", frame);
         if ((cv::waitKey(1) & 0xff) == 27) break;
     }
     std::cout << "done";
