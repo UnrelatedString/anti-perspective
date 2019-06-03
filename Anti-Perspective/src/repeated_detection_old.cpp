@@ -1,60 +1,48 @@
 #include "internal-header.hpp"
 
-#include <opencv2/face.hpp>
 
-class RepeatedFacemarkDetection {
+RepeatedFacemarkDetection::RepeatedFacemarkDetection(int maximum_delta) :
+	face_detector("/usr/local/share/OpenCV/haarcascades/haarcascade_frontalface_default.xml"),
+	facemark{cv::face::FacemarkLBF::create()},
+	pmwidth{0},
+	fails{0},
+	maxdelta{maximum_delta}
+{
+	facemark->loadModel("lbfmodel.yaml");
+}
 
-	cv::CascadeClassifier face_detector;
-	cv::Ptr<cv::face::Facemark> facemark;
-	int pmwidth;
-	int fails;
-	int maxdelta;
-
-public:
-
-	RepeatedFacemarkDetection(int maximum_delta) :
-		face_detector("/usr/local/share/OpenCV/haarcascades/haarcascade_frontalface_default.xml"),
-		facemark{cv::face::FacemarkLBF::create()},
-		pmwidth{0},
-		fails{0},
-		maxdelta{maximum_delta}
-	{
-		facemark->loadModel("lbfmodel.yaml");
+std::pair<std::vector<std::vector<cv::Point2f> >, int> RepeatedFacemarkDetection::get_face(cv::Mat frame) {
+	cv::Mat gray;
+	std::vector<cv::Rect> faces;
+	cv::cvtColor(frame, gray, cv::COLOR_BGR2GRAY);
+	face_detector.detectMultiScale(gray, faces);
+	int mwidth = 0;
+	int fnum = 0;
+	int mwfnum = -1;
+	for (cv::Rect const& f : faces) {
+		if (f.width > mwidth) {
+			mwidth = f.width;
+			mwfnum = fnum;
+		}
+		fnum++;
 	}
-
-	std::pair<std::vector< std::vector<cv::Point2f> >, int> get_face(cv::Mat frame) {
-		cv::Mat gray;
-		std::vector<cv::Rect> faces;
-		cv::cvtColor(frame, gray, cv::COLOR_BGR2GRAY);
-		face_detector.detectMultiScale(gray, faces);
-		int mwidth = 0;
-		int fnum = 0;
-		int mwfnum = -1;
-		for (cv::Rect const& f : faces) {
-			if (f.width > mwidth) {
-				mwidth = f.width;
-				mwfnum = fnum;
-			}
-			fnum++;
-		}
-		if (pmwidth && mwidth && (std::abs(pmwidth - mwidth) < maxdelta))
-			fails = 0;
-		else {
-			fails++;
-			if (fails > 10)
-				pmwidth = 0;
-		}
-		std::vector< std::vector<cv::Point2f> > landmarks;
-		// to do: find best face, possibly crop input to expanded roi to aid in pseudo-tracking
-		// best face possibly most stable, possibly largest, ???
-		// handle it not being present
-		if (facemark->fit(frame, faces, landmarks)) {
-			return std::make_pair(landmarks, mwfnum);
-		} else {
-			return {{}, -1};
-		}
+	if (pmwidth && mwidth && (std::abs(pmwidth - mwidth) < maxdelta))
+		fails = 0;
+	else {
+		fails++;
+		if (fails > 10)
+			pmwidth = 0;
 	}
-};
+	std::vector< std::vector<cv::Point2f> > landmarks;
+	// to do: find best face, possibly crop input to expanded roi to aid in pseudo-tracking
+	// best face possibly most stable, possibly largest, ???
+	// handle it not being present
+	if (facemark->fit(frame, faces, landmarks)) {
+		return std::make_pair(landmarks, mwfnum);
+	} else {
+		return {{}, -1};
+	}
+}
 
 int repeated_detection_mysterious() {
 	cv::namedWindow("Facemark Test", cv::WINDOW_NORMAL);
