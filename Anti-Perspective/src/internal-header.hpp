@@ -4,6 +4,7 @@
 #include <opencv2/opencv.hpp>
 #include <opencv2/face.hpp>
 #include <utility>
+#include <cmath>
 
 class AntiPerspectiveViewer {
 	int *distance;

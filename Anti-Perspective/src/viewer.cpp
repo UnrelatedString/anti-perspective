@@ -3,7 +3,7 @@
 #include <boost/math/special_functions/sin_pi.hpp>
 #include <boost/math/special_functions/cos_pi.hpp>
 */
-#include <cmath>
+
 #define PLENTY_DIGITS_OF_TAU 6.28318530717958647692528676655900576839433879875021164194988918461563281257241799725606965068423413596429617302656
 
 
