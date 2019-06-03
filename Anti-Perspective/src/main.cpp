@@ -14,7 +14,7 @@ int main(int argc, const char * argv[]) {
 	case 'r':
 		return select();
 	case 'd':
-		return repeated_detection_old();
+		return repeated_detection_mysterious();
 	default: return 0;
 	}
 }

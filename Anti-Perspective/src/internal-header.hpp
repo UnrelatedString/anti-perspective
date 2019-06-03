@@ -2,10 +2,11 @@
 #define INTERNAL_HEADER_HPP_
 
 #include <opencv2/opencv.hpp>
+#include <utility>
 
-void counter_perspective(cv::InputArray, cv::OutputArray, cv::Size, int, int);
+class AntiPerspectiveViewer;
 int run_viewer();
 int select();
-int repeated_detection_old();
+int repeated_detection_mysterious();
 
 #endif
