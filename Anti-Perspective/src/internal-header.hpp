@@ -37,9 +37,9 @@ public:
 	std::pair<std::vector<std::vector<cv::Point2f> >, int> get_face(cv::Mat frame);
 };
 
-int run_viewer();
+int run_viewer(std::string const& filename);
 int select();
 int repeated_detection_mysterious();
-int all_together();
+int all_together(std::string const& filename);
 
 #endif

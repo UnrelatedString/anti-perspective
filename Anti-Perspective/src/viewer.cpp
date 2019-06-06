@@ -43,8 +43,8 @@ void AntiPerspectiveViewer::counter_perspective(cv::InputArray src,
 		), size);
 }
 
-int run_viewer() {
-	cv::Mat image = cv::imread("8by8m.png");
+int run_viewer(std::string const& filename) {
+	cv::Mat image = cv::imread(filename);
 	const cv::Size size{700, 700};
 	int d, ind = 10, in_t = 91;
 	double t;

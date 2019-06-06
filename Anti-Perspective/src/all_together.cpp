@@ -1,6 +1,6 @@
 #include "internal-header.hpp"
 
-int all_together() {
+int all_together(std::string const& filename) {
 	cv::Mat vimage = cv::imread("8by8m.png");
 	const cv::Size vsize{700, 700};
 	int d = 1000, calib = 50; //assume fixed distance??
