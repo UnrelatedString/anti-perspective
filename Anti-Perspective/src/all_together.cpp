@@ -30,10 +30,16 @@ int all_together() {
 			for (std::vector<cv::Point2f> const& landmarks : faces) {
 				if (mwfnum == fnum) {
 					mwfx = landmarks[27].x;
+					cv::drawMarker(frame, landmarks[27], {0,0,255});
 				}
 				fnum++;
 			}
 		}
+		cv::imshow("Tracking",frame);
+
+		//calib is 1000* the pixel units distance over half the frame width
+		t = std::asin(mwfx / (calib * frame.cols / 500));
+		viewer.draw();
 
 		if ((cv::waitKey(1) & 0xff) == 27) break;
 	}

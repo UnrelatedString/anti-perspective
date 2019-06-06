@@ -9,6 +9,7 @@ int main(int argc, const char * argv[]) {
 	std::cout << "v to try to use the auto-viewer.\n";
 	char mode;
 	std::cin >> mode;
+	std::cout << "\nLoading" << std::endl;
 	switch (mode) {
 	case 's':
 		return run_viewer();

@@ -23,6 +23,7 @@ AntiPerspectiveViewer::AntiPerspectiveViewer(cv::InputArray image_unsized,
 void AntiPerspectiveViewer::draw() {
 	cv::Mat frame;
 	counter_perspective(image, frame, size, *distance, *angle);
+	cv::putText(frame, std::to_string(*angle*360/PLENTY_DIGITS_OF_TAU), {100, 80}, cv::FONT_HERSHEY_SIMPLEX, .75, {255, 0, 255});
 	cv::imshow(windowname, frame);
 }
 
