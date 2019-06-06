@@ -3,7 +3,7 @@
 int all_together() {
 	cv::Mat vimage = cv::imread("8by8m.png");
 	const cv::Size vsize{700, 700};
-	int d = 1000, calib; //assume fixed distance??
+	int d = 1000, calib = 500; //assume fixed distance??
 	double t;
 	AntiPerspectiveViewer viewer(vimage, "Result", vsize, &d, &t);
 	cv::createTrackbar("Calibrate", "Result", &calib, 500);
@@ -29,7 +29,7 @@ int all_together() {
 			fnum = 0;
 			for (std::vector<cv::Point2f> const& landmarks : faces) {
 				if (mwfnum == fnum) {
-					mwfx = landmarks[27].x;
+					mwfx = (frame.cols/2) - landmarks[27].x;
 					cv::drawMarker(frame, landmarks[27], {0,0,255});
 				}
 				fnum++;
@@ -38,9 +38,9 @@ int all_together() {
 		cv::imshow("Tracking",frame);
 
 		//calib is 1000* the pixel units distance over half the frame width
-		t = std::acos(-mwfx / (calib * frame.cols / 500));
+		t = std::acos(mwfx / (calib * frame.cols / 500));
 		viewer.draw();
-
+		std::cout << mwfx << " " << calib << "\n";
 		if ((cv::waitKey(1) & 0xff) == 27) break;
 	}
 	std::cout << "done\n";
