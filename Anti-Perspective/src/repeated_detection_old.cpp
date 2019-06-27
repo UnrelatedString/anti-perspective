@@ -38,6 +38,10 @@ std::pair<std::vector<std::vector<cv::Point2f> >, int> RepeatedFacemarkDetection
 	// best face possibly most stable, possibly largest, ???
 	// handle it not being present
 	if (facemark->fit(frame, faces, landmarks)) {
+		std::vector<cv::Point2f> mainface = landmarks[0];
+#define PLDIS(v,n,m,a) << #v << " = " << std::abs(mainface[ n ]. a - mainface[ m ]. a) << ", "
+		std::cout PLDIS(lL,27,36,x) PLDIS(lR,45,27,x) PLDIS(h,27,33,y) << "\n";
+#undef PLDIS
 		return std::make_pair(landmarks, mwfnum);
 	} else {
 		return {{}, -1};
