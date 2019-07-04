@@ -54,7 +54,6 @@ int repeated_detection_mysterious() {
 	cv::VideoCapture cam(0);
 	cam.read(frame);
 	cam.read(frame);
-	std::cout << frame.cols << std::endl;
 	RepeatedFacemarkDetection detector(frame.cols / 20);
 	std::pair<std::vector< std::vector<cv::Point2f> >, int> face_data;
 	std::vector< std::vector<cv::Point2f> > faces;
@@ -62,6 +61,7 @@ int repeated_detection_mysterious() {
 	int mwfnum;
 	while (1) {
 		cam.read(frame);
+		std::cout << frame.cols << std::endl;
 		face_data = detector.get_face(frame);
 		faces = face_data.first;
 		mwfnum = face_data.second;
@@ -81,7 +81,7 @@ int repeated_detection_mysterious() {
         else
             cv::putText(frame, "Detection failed!", {100, 80}, cv::FONT_HERSHEY_SIMPLEX, .75, {255, 0, 255});
         cv::imshow("Facemark Test", frame);
-        if ((cv::waitKey(1) & 0xff) == 27) break;
+        if ((cv::waitKey(5) & 0xff) == 27) break;
     }
     std::cout << "done";
     return 0;
