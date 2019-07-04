@@ -54,6 +54,7 @@ int repeated_detection_mysterious() {
 	cv::VideoCapture cam(0);
 	cam.read(frame);
 	cam.read(frame);
+	std::cout << frame.cols << std::endl;
 	RepeatedFacemarkDetection detector(frame.cols / 20);
 	std::pair<std::vector< std::vector<cv::Point2f> >, int> face_data;
 	std::vector< std::vector<cv::Point2f> > faces;
