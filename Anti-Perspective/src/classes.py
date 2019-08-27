@@ -1,13 +1,16 @@
 class Observer:
-    x = 0
-    y = 0
-    u = 0
+    def __init__(x, y, u):
+        self.x = x
+        self.y = y
+        self.u = u
 
 class Location:
-    d = 0
-    theta = 0
-    phi = 0
+    def __init__(d, theta, phi):
+        self.d = d
+        self.theta = theta
+        self.phi = phi
 
 class VirtualImage:
-    s = None
-    t = 0
+    def __init__(s, t):
+        self.s = s
+        self.t = t
