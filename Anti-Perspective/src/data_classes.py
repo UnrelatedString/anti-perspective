@@ -9,8 +9,3 @@ class Location:
         self.d = d
         self.theta = theta
         self.phi = phi
-
-class VirtualImage:
-    def __init__(s, t):
-        self.s = s
-        self.t = t
