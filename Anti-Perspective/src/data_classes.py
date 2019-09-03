@@ -8,4 +8,4 @@ class Location:
     def __init__(d, theta, phi):
         self.d = d
         self.theta = theta
-        self.phi = phi
+##        self.phi = phi #vertical

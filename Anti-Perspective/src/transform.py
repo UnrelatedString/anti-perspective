@@ -30,4 +30,16 @@ class Transform:
             ])
 
 class VirtualImage:
-    pass
+    def __init__(img, size):
+        self.img = cv2.resize(img, size, interpolation=cv2.INTER_NEAREST)
+        self.size = size
+        self.transform = Transform()
+    def update_distance(d):
+        transform.d = d
+    def update_angle(theta):
+        transform.theta = theta
+    def __call__():
+        return cv2.warpPerspective(img,
+                                   transform(),
+                                   size,
+                                   flags = cv2.INTER_NEAREST)
