@@ -8,7 +8,7 @@ class Transform:
         self.d = 1
         self.theta = 0
     def get_mat(self):
-        a = radians(theta)
+        a = radians(self.theta)
         s = sin(a)
         c = cos(a)
         return np.array([
@@ -22,7 +22,7 @@ class Transform:
                 [0, 1, size[1]//2],
                 [0, 0, 1]
             ]) @\
-            get_mat() @\
+            self.get_mat() @\
             np.array([
                 [1, 0, -size[0]//2],
                 [0, 1, -size[1]//2],
@@ -35,11 +35,11 @@ class VirtualImage:
         self.size = size
         self.transform = Transform()
     def update_distance(self, d):
-        transform.d = d
+        self.transform.d = d
     def update_angle(self, theta):
-        transform.theta = theta
+        self.transform.theta = theta
     def __call__(self):
-        return cv2.warpPerspective(img,
-                                   transform(),
-                                   size,
+        return cv2.warpPerspective(self.img,
+                                   self.transform(),
+                                   self.size,
                                    flags = cv2.INTER_NEAREST)
