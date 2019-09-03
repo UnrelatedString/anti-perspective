@@ -11,6 +11,8 @@ class Transform:
         a = radians(self.theta)
         s = sin(a)
         c = cos(a)
+        d = self.d
+        if d == 0: return # why can it be 0?
         return np.array([
             [c,   0, -s*d],
             [0,   1, 0],
@@ -40,6 +42,6 @@ class VirtualImage:
         self.transform.theta = theta
     def __call__(self):
         return cv2.warpPerspective(self.img,
-                                   self.transform(),
+                                   self.transform(self.size),
                                    self.size,
                                    flags = cv2.INTER_NEAREST)
