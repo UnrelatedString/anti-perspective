@@ -12,7 +12,6 @@ class Transform:
         s = sin(a)
         c = cos(a)
         d = self.d
-        if d == 0: return # why can it be 0?
         return np.array([
             [c,   0, -s*d],
             [0,   1, 0],
@@ -37,7 +36,7 @@ class VirtualImage:
         self.size = size
         self.transform = Transform()
     def update_distance(self, d):
-        self.transform.d = d
+        self.transform.d = d or 1
     def update_angle(self, theta):
         self.transform.theta = theta
     def __call__(self):
