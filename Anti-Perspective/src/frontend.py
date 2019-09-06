@@ -1,4 +1,5 @@
-from transform import *
+import cv2
+from transform import VirtualImage
 
 class SliderFrontend:
     def __init__(self, path):
