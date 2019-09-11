@@ -26,4 +26,20 @@ class SliderFrontend:
         cv2.destroyWindow('Result')
 
 class TrackerFrontend:
-    pass
+    def __init__(self, tracker):
+        cv2.namedWindow('Tracking')
+        self.tracker = tracker
+    def __call__(self):
+        self.run()
+    def run(self):
+        while cv2.waitKey(15) & 0xff != 27:
+            frame = tracker.get_frame()
+            point = tracker()
+            frame = cv2.drawMarker(frame, point, (0,255,255), thickness = 2)
+            frame = cv2.putText(frame,
+                                "x:%d y:%%d"%point.x%point.y,
+                                (100,80),
+                                cv2.HERSHEY_FONT_SIMPLEX,
+                                .75,
+                                (255,255,0))
+            cv2.imshow('Tracking',frame)
