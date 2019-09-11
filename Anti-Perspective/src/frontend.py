@@ -33,8 +33,8 @@ class TrackerFrontend:
         self.run()
     def run(self):
         while cv2.waitKey(15) & 0xff != 27:
-            frame = tracker.get_frame()
-            point = tracker()
+            frame = self.tracker.get_frame()
+            point = self.tracker()
             frame = cv2.drawMarker(frame, point, (0,255,255), thickness = 2)
             frame = cv2.putText(frame,
                                 "x:%d y:%%d"%point.x%point.y,
