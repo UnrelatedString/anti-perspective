@@ -27,8 +27,8 @@ class SliderFrontend:
 
 class TrackerFrontend:
     def __init__(self, tracker):
-        cv2.namedWindow('Tracking')
         self.tracker = tracker
+        cv2.imshow('Tracking', self.tracker.get_frame())
     def __call__(self):
         self.run()
     def run(self):
