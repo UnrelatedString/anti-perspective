@@ -25,5 +25,5 @@ class RepeatingDetector(Tracker):
     def find_face(self):
         gray = cv2.cvtColor(self.frame, cv2.COLOR_BGR2GRAY)
         rects = self.haar.detectMultiScale(gray)
-        face = max(rects, key=cv2.Rect.area)
-        return face.x-(face.width//2), face.y-(face.height//2)
+        face = max(rects, key=lambda r:r[2]*r[3])
+        return face[0]-(face[2]//2), face[1]-(face[3]//2)

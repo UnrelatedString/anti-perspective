@@ -34,12 +34,15 @@ class TrackerFrontend:
     def run(self):
         while cv2.waitKey(15) & 0xff != 27:
             frame = self.tracker.get_frame()
-            point = self.tracker()
+            try:
+                point = self.tracker()
+            except:
+                continue
             frame = cv2.drawMarker(frame, point, (0,255,255), thickness = 2)
             frame = cv2.putText(frame,
-                                "x:%d y:%%d"%point.x%point.y,
+                                "x:%d y:%d"%point,
                                 (100,80),
-                                cv2.HERSHEY_FONT_SIMPLEX,
+                                cv2.FONT_HERSHEY_SIMPLEX,
                                 .75,
                                 (255,255,0))
             cv2.imshow('Tracking',frame)
