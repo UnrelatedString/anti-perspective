@@ -38,7 +38,7 @@ class TrackerFrontend:
                 point = self.tracker()
             except:
                 continue
-            frame = cv2.drawMarker(frame, point, (0,255,255), thickness = 2)
+            frame = cv2.drawMarker(frame, point, (50,255,50), thickness = 2)
             frame = cv2.putText(frame,
                                 "x:%d y:%d"%point,
                                 (100,80),
