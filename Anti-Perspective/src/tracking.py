@@ -1,4 +1,5 @@
 import cv2
+import numpy as np
 
 class Tracker:
     def __init__(self):
@@ -15,15 +16,27 @@ class Tracker:
         pass
 
 #Ignore size tracking and any sort of smoothing for now
-#Also skip facemark and just use the Haar cascade stuff, then use Facemark later
 class RepeatingDetector(Tracker):
     def __init__(self):
         super().__init__()
         self.haar = cv2.CascadeClassifier(
             "/usr/local/share/OpenCV/haarcascades/haarcascade_frontalface_default.xml"
         )
-    def find_face(self):
+    def find_face_rect(self):
         gray = cv2.cvtColor(self.frame, cv2.COLOR_BGR2GRAY)
         rects = self.haar.detectMultiScale(gray)
-        face = max(rects, key=lambda r:r[2]*r[3])
+        return max(rects, key=lambda r:r[2]*r[3])
+    def find_face(self):
+        face = self.find_face_rect()
         return face[0]+(face[2]//2), face[1]+(face[3]//2)
+
+class FacemarkRepeatingDetector(RepeatingDetector):
+    def __init__(self):
+        super().__init__()
+        self.facemark = cv2.face.createFacemarkLBF()
+        self.facemark.loadModel('../lbfmodel.yaml')
+        print('loaded')
+    def find_face(self):
+        rect = self.find_face_rect()
+        success, face = self.facemark.fit(self.frame, np.array([rect]))
+        return face[0][27]
