@@ -5,7 +5,7 @@ class SliderFrontend:
     def __init__(self, path):
         self.vi = VirtualImage(cv2.imread(path), (700,700))
         cv2.imshow('Source', self.vi.img)
-        cv2.namedWindow('Result')
+        cv2.namedWindow('Result', cv2.WINDOW_NORMAL)
         cv2.createTrackbar('distance',
                            'Result',
                            1,
@@ -28,6 +28,7 @@ class SliderFrontend:
 class TrackerFrontend:
     def __init__(self, tracker):
         self.tracker = tracker
+        cv2.namedWindow('Tracking', cv2.WINDOW_NORMAL)
         cv2.imshow('Tracking', self.tracker.get_frame())
     def __call__(self):
         self.run()
