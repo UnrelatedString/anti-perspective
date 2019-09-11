@@ -17,6 +17,8 @@ class SliderFrontend:
                            180,
                            self.vi.update_angle)
     def __call__(self):
+        self.run()
+    def run(self):
         while cv2.waitKey(15) & 0xff != 27:
             cv2.imshow('Result', self.vi())
     def __del__(self):

@@ -18,6 +18,8 @@ class Transform:
             [s/d, 0, c]
         ])
     def __call__(self, size):
+        return self.apply_transform(size)
+    def apply_transform(self, size):
         return np.array([
                 [1, 0, size[0]//2],
                 [0, 1, size[1]//2],
@@ -40,6 +42,8 @@ class VirtualImage:
     def update_angle(self, theta):
         self.transform.theta = theta
     def __call__(self):
+        return self.warp()
+    def warp(self):
         return cv2.warpPerspective(self.img,
                                    self.transform(self.size),
                                    self.size,
