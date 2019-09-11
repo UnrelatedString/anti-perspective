@@ -22,3 +22,6 @@ class SliderFrontend:
     def __del__(self):
         cv2.destroyWindow('Source')
         cv2.destroyWindow('Result')
+
+class TrackerFrontend:
+    pass
