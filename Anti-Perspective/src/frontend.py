@@ -49,3 +49,21 @@ class TrackerFrontend:
                                 .75,
                                 (255,255,0))
             cv2.imshow('Tracking',frame)
+
+class AntiPerspectiveFrontend:
+    def __init__(self, path, tracker):
+        self.vi = VirtualImage(cv2.imread(path), (700,700))
+        self.tracker = tracker
+        cv2.namedWindow('Result', cv2.WINDOW_NORMAL)
+    def __call__(self):
+        self.run()
+    def run(self):
+        while cv2.waitKey(15) & 0xff != 27:
+            frame = self.tracker.get_frame()
+            try:
+                point = self.tracker()
+            except Exception as e:
+                print(repr(e))
+                continue
+            x = point[0]
+            
