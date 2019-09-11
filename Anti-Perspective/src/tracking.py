@@ -41,4 +41,4 @@ class FacemarkRepeatingDetector(RepeatingDetector):
         wrapped_rect = np.array([rect])
         success, face = self.facemark.fit(self.frame, wrapped_rect)
         assert success
-        return face[0][:,27]
+        return face[0][:,27][0]

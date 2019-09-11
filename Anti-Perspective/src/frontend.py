@@ -39,9 +39,10 @@ class TrackerFrontend:
             except Exception as e:
                 print(repr(e))
                 continue
-            frame = cv2.drawMarker(frame, point, (50,255,50), thickness = 2)
+            x, y = point
+            frame = cv2.drawMarker(frame, (x,y), (50,255,50), thickness = 2)
             frame = cv2.putText(frame,
-                                "x:%d y:%d"%point,
+                                "x:%d y:%%d"%x%y,
                                 (100,80),
                                 cv2.FONT_HERSHEY_SIMPLEX,
                                 .75,
