@@ -38,6 +38,7 @@ class FacemarkRepeatingDetector(RepeatingDetector):
         print('loaded')
     def find_face(self):
         rect = self.find_face_rect()
-        success, face = self.facemark.fit(self.frame, np.array([rect]))
+        wrapped_rect = np.array([rect])
+        success, face = self.facemark.fit(self.frame, wrapped_rect)
         assert success
-        return face[0][27]
+        return face[0][:,27]

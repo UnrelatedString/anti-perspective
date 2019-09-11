@@ -37,7 +37,7 @@ class TrackerFrontend:
             try:
                 point = self.tracker()
             except Exception as e:
-                print(e)
+                print(repr(e))
                 continue
             frame = cv2.drawMarker(frame, point, (50,255,50), thickness = 2)
             frame = cv2.putText(frame,
