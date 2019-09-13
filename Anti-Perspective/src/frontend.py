@@ -1,5 +1,6 @@
 import cv2
 from transform import VirtualImage
+from math import acos
 
 class SliderFrontend:
     def __init__(self, path):
@@ -50,9 +51,11 @@ class TrackerFrontend:
                                 (255,255,0))
             cv2.imshow('Tracking',frame)
 
+#Ignore distance for now, I guess
 class AntiPerspectiveFrontend:
     def __init__(self, path, tracker):
         self.vi = VirtualImage(cv2.imread(path), (700,700))
+        self.vi.d = 2000
         self.tracker = tracker
         cv2.namedWindow('Result', cv2.WINDOW_NORMAL)
     def __call__(self):
@@ -65,5 +68,6 @@ class AntiPerspectiveFrontend:
             except Exception as e:
                 print(repr(e))
                 continue
-            x = point[0]
-            
+            x = point[0]-frame.shape[1] #??
+            self.vi.theta = acos(x/self.vi.d) #??
+            cv2.imshow('Result', self.vi())
