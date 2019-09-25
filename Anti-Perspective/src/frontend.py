@@ -1,6 +1,6 @@
 import cv2
 from transform import VirtualImage
-from math import acos, degrees
+from math import asin, degrees
 
 class SliderFrontend:
     def __init__(self, path):
@@ -69,5 +69,6 @@ class AntiPerspectiveFrontend:
                 print(repr(e))
                 continue
             x = point[0]-frame.shape[1] #??
-            self.vi.update_angle(degrees(acos(x/self.vi.transform.d))) #??
+            self.vi.update_angle(degrees(-asin(x/self.vi.transform.d))) #??
+            print(degrees(-asin(x/self.vi.transform.d)))
             cv2.imshow('Result', self.vi())
