@@ -1,6 +1,6 @@
 import cv2
 from transform import VirtualImage
-from math import acos
+from math import acos, degrees
 
 class SliderFrontend:
     def __init__(self, path):
@@ -55,7 +55,7 @@ class TrackerFrontend:
 class AntiPerspectiveFrontend:
     def __init__(self, path, tracker):
         self.vi = VirtualImage(cv2.imread(path), (700,700))
-        self.vi.d = 2000
+        self.vi.update_distance(2000)
         self.tracker = tracker
         cv2.namedWindow('Result', cv2.WINDOW_NORMAL)
     def __call__(self):
@@ -69,5 +69,5 @@ class AntiPerspectiveFrontend:
                 print(repr(e))
                 continue
             x = point[0]-frame.shape[1] #??
-            self.vi.theta = acos(x/self.vi.d) #??
+            self.vi.update_angle(degrees(acos(x/self.vi.transform.d))) #??
             cv2.imshow('Result', self.vi())
