@@ -58,6 +58,12 @@ class AntiPerspectiveFrontend:
         self.vi.update_distance(2000)
         self.tracker = tracker
         cv2.namedWindow('Result', cv2.WINDOW_NORMAL)
+        #Distance slider I guess?
+        cv2.createTrackbar('distance',
+                           'Result',
+                           1,
+                           10000,
+                           self.vi.update_distance)
     def __call__(self):
         self.run()
     def run(self):
